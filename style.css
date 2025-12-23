@@ -1,0 +1,96 @@
+/* ძირითადი სტილები */
+body {
+  background-color: #0b0e11;
+  color: #eaecef;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Headings */
+th {
+  text-align: left;
+  color: #848e9c;
+  font-size: 14px;
+  padding: 12px 8px;
+  border-bottom: 1px solid #2b2f36;
+}
+
+/* Rows & Cells */
+td {
+  padding: 16px 8px;
+  border-bottom: 1px solid #2b2f36;
+  font-size: 14px;
+}
+
+tr:hover {
+  background-color: #1e2329;
+}
+
+/* ფერები ცვლილებისთვის */
+.negative {
+  color: #f6465d;
+}
+
+.positive {
+  color: #0ecb81;
+}
+
+/* მონეტების აიკონების იმიტაცია */
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.btc {
+  background-color: #f3ba2f;
+  color: black;
+}
+.eth {
+  background-color: #627eea;
+  color: white;
+}
+.usdt {
+  background-color: #26a17b;
+  color: white;
+}
+.usdc {
+  background-color: #2775ca;
+  color: white;
+}
+.sol {
+  background-color: #00ffa3;
+  color: black;
+}
+.trx {
+  background-color: #ef0027;
+  color: white;
+}
+
+.actions {
+  color: #848e9c;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+strong {
+  color: #ffffff;
+}
