@@ -1,92 +1,135 @@
-📜 Mission: The Crypto Ledger Architect
-Mission Name: ₿ Mission: Digital Asset Visualization
-Theme: Fintech & Cryptocurrency Dashboard
-Difficulty: Intermediate | Tech Stack: HTML5 (Tables, Semantics) & CSS3 (Flexbox, Dark Mode)
-Welcome, Developer!
+# Mission: Build a Modern User Dashboard
 
-The Global Digital Exchange has requested a new interface to track the world's most valuable crypto assets. Your task is to build a high-performance, visually sharp Crypto Market Dashboard. Accuracy is key—in the world of finance, a misplaced decimal or a broken table row can cost billions!
+**Objective**: Create a complete, interactive, and semantic HTML dashboard for user account management. You will build this file from scratch, following best practices for forms, semantic structure, and accessibility.
 
-Your Goal: Build a complete HTML document representing a real-time crypto market, using structured tables and professional styling to ensure data clarity.
+**Goal**: The final output must match the provided reference designs (or the provided `index.html` structure) exactly.
 
-Phase 1: The Digital Foundation (Structure)
-Create the standard HTML skeleton: <!DOCTYPE html>, <html>, <head>, and <body>.
+---
 
-Inside the <head>, set the <title> to: Crypto Market Dashboard: Live Quotes.
+## Phase 1: The Blueprint (Document Structure)
 
-Warning: Ensure you link your external stylesheet using <link rel="stylesheet" href="style.css"> before moving to the content.
+1.  **Initialize the Document**:
+    *   Start with a standard HTML5 declaration `<!DOCTYPE html>`.
+    *   Set the root `<html>` element with `lang="en"`.
+    *   Create the `<head>` and `<body>` sections.
 
-Phase 2: Mapping the Market (Semantics)
-Header: Create a <header> containing an <h1> with the text: "Global Market Overview".
+2.  **Head Configuration**:
+    *   Set the character set to `UTF-8`.
+    *   Configure the viewport for responsive design: `width=device-width, initial-scale=1.0`.
+    *   Set the `<title>` to **Modern User Dashboard**.
+    *   Link the external stylesheet `style.css`.
+    *   Import the **Inter** font from Google Fonts (weights 400, 500, 600, 700).
 
-Navigation: Add a <nav> with links pointing to internal IDs: #market, #stats, and #settings.
+---
 
-Main Content: Use the <main> tag to wrap your primary data table.
+## Phase 2: Navigation & Branding
 
-Aside: Create an <aside> representing a "Breaking News" ticker. Inside, add a <p> about a sudden Bitcoin price surge.
+3.  **Create the Header**:
+    *   Use the `<header>` semantic tag.
+    *   Inside, add a `<nav>` element.
+    *   Create a `.logo` div containing the text "UserDash" with a span `.dot` for the period.
 
-Footer: Add a <footer> with the exchange’s copyright information.
+4.  **Navigation Menu**:
+    *   Add a `<ul>` list inside the `<nav>`.
+    *   Create three list items with links:
+        *   Profile (`#profile`) - mark as `.active`
+        *   Settings (`#settings`)
+        *   Contact (`#feedback`)
 
-Phase 3: The Asset Ledger (Formatting & Tables)
-Inside a <section> with id="market":
+---
 
-Magical Table: Create a <table> to display the assets:
+## Phase 3: The Profile Section (Text Inputs)
 
-Use <thead> for headers: Asset Name, Price, 24h Change, Market Cap.
+5.  **Main Container**:
+    *   Wrap all following content in a `<main>` tag.
 
-Use <tbody> with at least 5 rows of data (BTC, ETH, etc.).
+6.  **Profile Layout**:
+    *   Create a `<section>` with `id="profile"`.
+    *   Add a `.section-header` with an `<h2>` "Personal Information" and a `.subtitle` paragraph.
 
-Data Formatting: Use the following tags within your table cells:
+7.  **Profile Form**:
+    *   Create a `<form>` pointing to `/update-profile` (POST method).
+    *   **Full Name**: specific Input type `text`, placeholder "e.g. John Doe".
+    *   **Email**: specific Input type `email`.
+    *   **Grid Layout**: Create a `.form-grid` container for Phone and Birthdate.
+        *   **Phone**: Input type `tel`.
+        *   **Date of Birth**: Input type `date`.
+    *   Add a submit button with class `.btn-primary`: "Update Information".
 
-<strong> for the Price values.
+---
 
-<em> for the asset Ticker (e.g., BTC).
+## Phase 4: Security Section (Passwords)
 
-<mark> to highlight the Top Gainer of the day.
+8.  **Security Area**:
+    *   Create a `<section>` with `id="security"`.
+    *   Add header "Security" and subtitle "Manage your password and account security."
 
-<span class="positive"> or <span class="negative"> for the percentage changes.
+9.  **Password Form**:
+    *   Create a `<form>` pointing to `/change-password`.
+    *   **Current Password**: Input type `password`.
+    *   **New Password**: Input type `password`.
+    *   Add a "Change Password" submit button.
 
-Iconography: Add a small <img> or a stylized <span> for each coin logo next to the name.
+---
 
-Phase 4: Exchange Statistics (Lists)
-Inside a <section> with id="stats":
+## Phase 5: Settings (Radios & Checkboxes)
 
-Unordered List: Create a <ul> listing 3 active trading pairs (e.g., BTC/USDT).
+10. **Settings Area**:
+    *   Create a `<section>` with `id="settings"`.
+    *   Add header "Settings".
 
-Ordered List: Create an <ol> listing the top 3 exchanges by volume.
+11. **Theme Selection (Radios)**:
+    *   Use a `.radio-group-wrapper`.
+    *   Create two options: "Light Mode" (checked by default) and "Dark Mode".
+    *   *Tip*: Nest the `<input type="radio">` inside the `<label>` for better UX.
 
-Description List: Use a <dl> to define crypto terms (e.g., <dt>HODL</dt> -> <dd>Holding an asset for the long term</dd>).
+12. **Notifications (Checkboxes)**:
+    *   Use a `.checkbox-group-wrapper`.
+    *   Create options for:
+        *   "Receive newsletter via Email" (checked).
+        *   "Receive SMS notifications".
 
-Phase 5: Visual Evidence (Multimedia)
-Inside a <section> with id="evidence":
+---
 
-Iframe: Embed a YouTube video or a TradingView widget showing a live price chart.
+## Phase 6: Feedback (Select & Range)
 
-External Link: In the footer, add a link to "CoinMarketCap." It must open in a new tab (target="\_blank").
+13. **Feedback Area**:
+    *   Create a `<section>` with `id="feedback"`.
+    *   Add header "Feedback".
 
-✨ The Finale: The Professional Gloss (CSS)
-Once your HTML structure is solid, apply these CSS rules to your style.css to achieve the "Dark Mode" look:
+14. **Feedback Form**:
+    *   Create a `<form>` pointing to `/submit-feedback`.
+    *   **Department Dropdown**: Use a `<select>` with options: Technical Support, Sales Department, Human Resources.
+    *   **Rating Slider**: Use a `<div class="range-wrapper">` containing an `<input type="range">` (0-10) and an `<output>` element that updates via JS/oninput.
+    *   **Message**: Use a `<textarea>` with `rows="5"`.
 
-Background: Set the body background to #0b0e11 (Binance Dark).
+---
 
-Typography: Use font-family: 'Inter', sans-serif; for a clean, modern look.
+## Phase 7: The Danger Zone
 
-Table Styling: \* Set border-collapse: collapse; for the table.
+15. **Danger Section**:
+    *   Create a `<section>` with class `.danger-zone`.
+    *   Add an `<h2>` "⚠️ Danger Zone" and a `.danger-text` subtitle.
 
-Add a subtle border-bottom to each tr using #2b2f36.
+16. **Delete Account**:
+    *   Create a form for deletion.
+    *   Add a **Confirmation Checkbox**: "I confirm that I want to delete my account" (required attribute).
+    *   Add a submit button with class `.btn-danger`: "Delete Account".
 
-Apply .positive { color: #0ecb81; } and .negative { color: #f6465d; }.
+---
 
-Interactivity: Add a hover state to rows: tr:hover { background-color: #1e2329; }.
+## Phase 8: Footer
 
-✅ Checklist for Success:
-[ ] Semantic tags (header, nav, main, aside, footer) are correctly placed.
+17. **Footer**:
+    *   Add a `<footer>` outside the `<main>` tag.
+    *   Include a copyright notice.
 
-[ ] The table is properly structured with thead, tbody, and data cells.
+---
 
-[ ] Both positive (green) and negative (red) price indicators are styled.
+## ✅ Checklist for Success
 
-[ ] All three list types (ul, ol, dl) are implemented.
-
-[ ] External links open in a new tab for a better user experience.
-
-[ ] The CSS link is active, transforming the raw HTML into a pro dashboard.
+[ ] Document uses correct semantic tags (`nav`, `main`, `section`, `footer`).
+[ ] All distinct input types are used effectively (`email`, `tel`, `date`, `password`, `range`).
+[ ] Forms have correct `action` and `method` attributes.
+[ ] Labels are correctly associated with inputs (using `for` or nesting).
+[ ] The Danger Zone is visually distinct (handled by CSS, but structure matters).

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern User Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">UserDash<span class="dot">.</span></div>
+        <ul>
+          <li><a href="#profile" class="active">Profile</a></li>
+          <li><a href="#settings">Settings</a></li>
+          <li><a href="#feedback">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="profile">
+        <div class="section-header">
+          <h2>Personal Information</h2>
+          <p class="subtitle">Update your personal details here.</p>
+        </div>
+        <form action="/update-profile" method="POST">
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              placeholder="e.g. John Doe"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@gmail.com"
+              required
+            />
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+1 555 000 0000"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="birthdate">Date of Birth</label>
+              <input type="date" id="birthdate" name="birthdate" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">Update Information</button>
+        </form>
+      </section>
+
+      <section id="security">
+        <div class="section-header">
+          <h2>Security</h2>
+          <p class="subtitle">Manage your password and account security.</p>
+        </div>
+        <form action="/change-password" method="POST">
+          <div class="form-group">
+            <label for="current-pass">Current Password</label>
+            <input
+              type="password"
+              id="current-pass"
+              name="current_pass"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="new-pass">New Password</label>
+            <input type="password" id="new-pass" name="new_pass" required />
+          </div>
+
+          <button type="submit" class="btn-primary">Change Password</button>
+        </form>
+      </section>
+
+      <section id="settings">
+        <div class="section-header">
+          <h2>Settings</h2>
+          <p class="subtitle">Customize your application experience.</p>
+        </div>
+        <form action="/save-settings" method="POST">
+          <label class="group-label">Select Theme</label>
+          <div class="radio-group-wrapper">
+            <label class="radio-option">
+              <input type="radio" name="theme" value="light" checked />
+              <span class="custom-radio"></span>
+              Light Mode
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="theme" value="dark" />
+              <span class="custom-radio"></span>
+              Dark Mode
+            </label>
+          </div>
+
+          <br />
+          <label class="group-label">Notifications</label>
+          <div class="checkbox-group-wrapper">
+            <label class="checkbox-option">
+              <input
+                type="checkbox"
+                name="notifications"
+                value="news"
+                checked
+              />
+              <span class="custom-checkbox"></span>
+              Receive newsletter via Email
+            </label>
+            <label class="checkbox-option">
+              <input type="checkbox" name="notifications" value="sms" />
+              <span class="custom-checkbox"></span>
+              Receive SMS notifications
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primary">Save Settings</button>
+        </form>
+      </section>
+
+      <section id="feedback">
+        <div class="section-header">
+          <h2>Feedback</h2>
+          <p class="subtitle">We'd love to hear your thoughts.</p>
+        </div>
+        <form action="/submit-feedback" method="POST">
+          <div class="form-group">
+            <label for="department">Who are you contacting?</label>
+            <select id="department" name="department">
+              <option value="support">Technical Support</option>
+              <option value="sales">Sales Department</option>
+              <option value="hr">Human Resources</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="rating">Rate our service (0-10)</label>
+            <div class="range-wrapper">
+              <input
+                type="range"
+                id="rating"
+                name="rating"
+                min="0"
+                max="10"
+                oninput="this.nextElementSibling.value = this.value"
+              />
+              <output>5</output>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Write in detail..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Submit Feedback</button>
+        </form>
+      </section>
+
+      <section class="danger-zone">
+        <div class="section-header">
+          <h2>⚠️ Danger Zone</h2>
+          <p class="subtitle danger-text">Irreversible actions lie ahead.</p>
+        </div>
+        <form action="/delete-account" method="POST">
+          <label class="checkbox-option danger-checkbox">
+            <input type="checkbox" id="confirm-delete" required />
+            <span class="custom-checkbox"></span>
+            I confirm that I want to delete my account
+          </label>
+          <button type="submit" class="btn-danger">Delete Account</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 UserDash. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

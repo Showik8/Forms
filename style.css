@@ -1,96 +1,382 @@
-/* ძირითადი სტილები */
+/* --- Modern Premium CSS --- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Palette - Modern Violet/Indigo Gradient */
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --primary-color: #6366f1;
+  --secondary-color: #64748b;
+  
+  --bg-body: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-input: #f1f5f9;
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-on-primary: #ffffff;
+
+  --danger-color: #ef4444;
+  --danger-surface: #fef2f2;
+  --danger-border: #fecaca;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
+  --shadow-glow: 0 0 15px rgba(99, 102, 241, 0.3);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+}
+
+/* --- Base & Reset --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  background-color: #0b0e11;
-  color: #eaecef;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-body);
+  /* Subtle mesh gradient background */
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,0) 0, hsla(253,16%,7%,0) 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,0) 0, hsla(225,39%,30%,0) 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,0) 0, hsla(339,49%,30%,0) 50%);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-.container {
-  width: 90%;
+/* --- Header --- */
+header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+nav {
   max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-table {
+.logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+.logo .dot { color: var(--primary-color); }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+nav a:hover, nav a.active {
+  color: var(--primary-color);
+}
+
+/* Animated Underline */
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: var(--primary-gradient);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover::after, nav a.active::after {
   width: 100%;
-  border-collapse: collapse;
 }
 
-/* Headings */
-th {
-  text-align: left;
-  color: #848e9c;
-  font-size: 14px;
-  padding: 12px 8px;
-  border-bottom: 1px solid #2b2f36;
+/* --- Layout --- */
+main {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* Rows & Cells */
-td {
-  padding: 16px 8px;
-  border-bottom: 1px solid #2b2f36;
-  font-size: 14px;
+/* --- Sections --- */
+section {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Entrance Animation */
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-tr:hover {
-  background-color: #1e2329;
+/* Stagger Animations */
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+section:nth-child(5) { animation-delay: 0.5s; }
+
+section:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
-/* ფერები ცვლილებისთვის */
-.negative {
-  color: #f6465d;
+.section-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
 }
 
-.positive {
-  color: #0ecb81;
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
 }
 
-/* მონეტების აიკონების იმიტაცია */
-.icon {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 24px;
-  margin-right: 10px;
-  font-weight: bold;
-  font-size: 12px;
+/* --- Forms --- */
+form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.btc {
-  background-color: #f3ba2f;
-  color: black;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
-.eth {
-  background-color: #627eea;
-  color: white;
-}
-.usdt {
-  background-color: #26a17b;
-  color: white;
-}
-.usdc {
-  background-color: #2775ca;
-  color: white;
-}
-.sol {
-  background-color: #00ffa3;
-  color: black;
-}
-.trx {
-  background-color: #ef0027;
-  color: white;
+@media(min-width: 600px) {
+  .form-grid { grid-template-columns: 1fr 1fr; }
 }
 
-.actions {
-  color: #848e9c;
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--bg-input);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  background: var(--bg-surface);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  outline: none;
+}
+
+input::placeholder { color: #94a3b8; }
+
+/* --- Options (Radios & Checkboxes) --- */
+.radio-group-wrapper, .checkbox-group-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--bg-input);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.radio-option, .checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   cursor: pointer;
-  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-main);
 }
 
-strong {
-  color: #ffffff;
+.custom-radio, .custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cbd5e1;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.custom-radio { border-radius: 50%; }
+.custom-checkbox { border-radius: 6px; }
+
+/* Checked State Logic */
+input:checked ~ .custom-radio {
+  border-color: var(--primary-color);
+}
+input:checked ~ .custom-radio::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--primary-gradient);
+  border-radius: 50%;
+  transform: scale(1);
+}
+.custom-radio::after {
+  content: '';
+  transform: scale(0);
+  transition: transform 0.2s;
+}
+
+input:checked ~ .custom-checkbox {
+  background: var(--primary-gradient);
+  border-color: transparent;
+}
+/* SVG checkmark via background image would be here, but using pure CSS pseudo for simplicity or just keeping previous SVG logic if possible. 
+   Re-implementing the SVG background for the checkbox: */
+input:checked ~ .custom-checkbox {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2.5-2.5a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  background-size: contain;
+}
+
+/* --- Range Slider --- */
+.range-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 2px solid var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  margin-top: -10px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: #e2e8f0;
+  border-radius: 3px;
+}
+output {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+}
+
+/* --- Buttons --- */
+button {
+  cursor: pointer;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: var(--text-on-primary);
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.5);
+}
+
+/* --- Danger Zone --- */
+.danger-zone {
+  border-color: var(--danger-border);
+  background: linear-gradient(to bottom right, #fff, var(--danger-surface));
+}
+
+.danger-zone h2, .danger-text {
+  color: var(--danger-color);
+}
+
+.btn-danger {
+  background: var(--danger-color);
+  color: white;
+  box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3);
+}
+.btn-danger:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(239, 68, 68, 0.4);
+}
+
+.danger-checkbox .custom-checkbox {
+  border-color: var(--danger-border);
+}
+.danger-checkbox input:checked ~ .custom-checkbox {
+  background-color: var(--danger-color);
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2.5-2.5a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* --- Keyframes --- */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
