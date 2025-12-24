@@ -231,6 +231,17 @@ input::placeholder { color: #94a3b8; }
   cursor: pointer;
   font-weight: 500;
   color: var(--text-main);
+  position: relative; /* ensure absolute positioning works relative to this if needed, though inputs are just hidden */
+}
+
+/* Hide native inputs visually but keep accessible */
+.radio-option input, 
+.checkbox-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  cursor: pointer;
 }
 
 .custom-radio, .custom-checkbox {
